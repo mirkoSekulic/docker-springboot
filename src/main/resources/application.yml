@@ -1,7 +1,7 @@
 
 spring:
     application:
-        name: querydsl-filtering-demo
+        name: docker-springboot-demo
 
     profiles:
         active: dev

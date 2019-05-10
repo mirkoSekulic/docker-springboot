@@ -1,0 +1,11 @@
+spring:
+  profiles:
+    active: 'prod'
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://springboot-db:3306/demo?useUnicode=true&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=CET
+    username: root
+    password: root
+
+  liquibase:
+    contexts: dev

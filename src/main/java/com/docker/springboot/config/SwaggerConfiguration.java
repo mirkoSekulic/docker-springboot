@@ -37,7 +37,7 @@ import static springfox.documentation.schema.AlternateTypeRules.newRule;
 
 @Configuration
 @EnableSwagger2
-@Profile("dev")
+// @Profile("dev")
 @Order(99)
 @Import(BeanValidatorPluginsConfiguration.class)
 @SuppressWarnings("squid:S1068")

@@ -9,7 +9,7 @@ import java.io.Serializable;
 import java.time.Instant;
 
 /**
- * A user domain model.
+ * An Example domain model.
  */
 @Entity
 @Table(name = "example")

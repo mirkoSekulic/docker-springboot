@@ -28,8 +28,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
     protected void configure(HttpSecurity http) throws Exception
     {
         http
-
-                // we don't need CSRF because our token is invulnerable
                 .csrf().disable()
 
                 .headers().frameOptions().disable().and()

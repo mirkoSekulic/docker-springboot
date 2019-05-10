@@ -1,0 +1,45 @@
+# ---------------------------------------------------------------------------
+# Main Docker Compose file. Used for building and tagging images.
+version: '3.6'
+
+networks:
+    springboot-net:
+
+services:
+  # ---------------------------------------------------------------------------
+  # MySQL database server.
+  # Available to (i.e. connected from) springboot-srv.
+  # ---------------------------------------------------------------------------
+  springboot-db:
+    build:
+      dockerfile: db.dockerfile
+      context: .
+    image: sb/springboot:db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - ./data/db-data:/var/lib/mysql
+      - ./data/db-init:/docker-entrypoint-initdb.d
+    ports:
+      - '3306:3306'
+    networks:
+      - springboot-net
+
+  # ---------------------------------------------------------------------------
+  # Server-side (Java Spring) application with embedded Tomcat.
+  # --------------------------------------------------------------
+  springboot-srv:
+    build:
+      context: .
+    image: sb/springboot:srv
+    volumes:
+      - ./data/srv-config:/config
+      - ./data/srv-data/documents:/documents
+    ports: 
+      - '8080:8080'
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    networks:
+      - springboot-net
