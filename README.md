@@ -1,8 +1,8 @@
-# Docker spring boot
+# Dockerizing spring boot and mysql application
 
-This is a demo for dockerizing spring boot aplication for production.
+This is a demo for dockerizing spring boot aplication and mysql application.
 ## Installation
-You dont need java instaled on machine, only docker and docker-compose. 
+You dont need java instaled on machine or mysql, only docker and docker-compose. 
 
 ### Commands
 1. docker-compose build
