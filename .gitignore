@@ -146,6 +146,3 @@ src/test/resources/test_data
 
 documents/*
 !documents/.gitkeep 
-
-# Docker data
-data/db-data/**
